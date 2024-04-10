@@ -24,8 +24,8 @@ public class Game extends JPanel {
     private GameStatus status;
 
     // constants variables
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 760;
+    public static final int HEIGHT = 520;
     private static final int SPEED = 50;
     private static final Font FONT_M = new Font("MV Boli", Font.PLAIN, 24);
     private static final Font FONT_M_ITALIC = new Font("MV Boli", Font.ITALIC, 24);
@@ -56,10 +56,14 @@ public class Game extends JPanel {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setDoubleBuffered(true);
         startNewGame();
+        repaint();
+
+        requestFocusInWindow();
     }
 
     private void startNewGame() {
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
+        status = GameStatus.NOT_STARTED;
     }
 
     @Override
